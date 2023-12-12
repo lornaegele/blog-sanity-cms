@@ -2,6 +2,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Footer, Navbar, Providers } from "../components";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,11 +30,11 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <main className="mx-auto min-h-[calc(100%_-_120px)] max-w-5xl px-4 pt-2 sm:px-6 lg:px-8">
+          <main className="mx-auto h-[calc(100%_-_64px)] max-w-5xl overflow-scroll px-4 pt-2 sm:px-6 lg:px-8">
             {children}
           </main>
-          <Footer />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { PhotoPreview } from "@/app/components";
+import { Footer, PhotoPreview } from "@/app/components";
 import { PhotoType } from "@/app/lib/interfaces";
 import { fetchSanityData } from "@/app/lib/sanity";
 import { Modal } from "@/app/components";
@@ -18,22 +18,25 @@ const PhotographyPage = async () => {
 
   const photoData = (await fetchSanityData(photoQuery)) as PhotoType[];
   return (
-    <div className="flex flex-col p-0 md:px-4">
-      <div className="flex flex-wrap gap-4">
-        {photoData.map((photo: PhotoType) => (
-          <PhotoPreview photo={photo} key={photo._id} />
-        ))}
-      </div>
-      <Modal>
-        <div>
-          <p className="font-bold">Welcome!</p>
-          <p className="py-2">
-            You can click on every picuture you like, to see more information
-            about my thoughts and the story behind the photograph.
-          </p>
-          <p>I hope you enjoy!</p>
+    <div className="flex h-full flex-col justify-between">
+      <div className="flex flex-col p-0 md:px-4">
+        <div className="flex flex-wrap gap-4">
+          {photoData.map((photo: PhotoType) => (
+            <PhotoPreview photo={photo} key={photo._id} />
+          ))}
         </div>
-      </Modal>
+        <Modal>
+          <div>
+            <p className="font-bold">Welcome!</p>
+            <p className="py-2">
+              You can click on every picuture you like, to see more information
+              about my thoughts and the story behind the photograph.
+            </p>
+            <p>I hope you enjoy!</p>
+          </div>
+        </Modal>
+      </div>
+      <Footer />
     </div>
   );
 };

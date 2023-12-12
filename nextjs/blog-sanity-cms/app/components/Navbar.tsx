@@ -39,7 +39,7 @@ const Navbar = () => {
             <div className="flex w-full justify-start md:w-1/3">
               <Link href="/">
                 <h1 className=" flex items-center justify-center gap-2 text-xl">
-                  <GiMountainRoad /> lorenznaegele{" "}
+                  <GiMountainRoad /> lorenznaegele
                 </h1>
               </Link>
             </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
             </div>
             {/* Animated Menu */}
             <div
-              className={` fixed right-0 top-0 z-30 h-screen w-screen bg-white text-black shadow-md transition-transform duration-500 md:hidden ${
+              className={` fixed right-0 top-0 z-30 !h-screen w-screen bg-white text-black shadow-md transition-transform duration-500 md:hidden ${
                 menuOpen ? "translate-x-0" : "translate-x-full"
               }`}
               style={{

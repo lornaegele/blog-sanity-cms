@@ -2,7 +2,7 @@ import { client, fetchSanityData } from "@/app/lib/sanity";
 import { PhotoType } from "@/app/lib/interfaces";
 import Image from "next/image";
 import urlFor from "@/app/lib/sanityImageUrl";
-import { ContentLoader } from "@/app/components";
+import { ContentLoader, Footer } from "@/app/components";
 import { groq } from "next-sanity";
 import { format } from "date-fns";
 
@@ -32,27 +32,30 @@ const SlugPage = async ({ params: { slug } }: SlugPageProps) => {
   const formattedDate = format(new Date(data.date), "dd MMMM yyyy");
 
   return (
-    <div>
-      <div className="flex flex-col items-end justify-end">
-        <Image
-          className="object-cover object-left lg:object-center"
-          src={urlFor(data.image).url()}
-          width={1000}
-          height={750}
-          alt={data.title}
-        />
-        <div className="flex w-full justify-end pt-1">
-          {/* <button className="underline">View Fullscreen</button> */}
-          <div>{formattedDate}</div>
+    <div className="flex h-full flex-col justify-between">
+      <div>
+        <div className="flex flex-col items-end justify-end">
+          <Image
+            className="object-cover object-left lg:object-center"
+            src={urlFor(data.image).url()}
+            width={1000}
+            height={750}
+            alt={data.title}
+          />
+          <div className="flex w-full justify-end pt-1">
+            {/* <button className="underline">View Fullscreen</button> */}
+            <div>{formattedDate}</div>
+          </div>
+        </div>
+        <div className="py-4">
+          <h1 className="pb-4 text-xl font-semibold">{data.title}</h1>
+          {data.shortDescription && (
+            <div className="pb-4">{data.shortDescription}</div>
+          )}
+          <ContentLoader content={data.description} />
         </div>
       </div>
-      <div className="py-4">
-        <h1 className="pb-4 text-xl font-semibold">{data.title}</h1>
-        {data.shortDescription && (
-          <div className="pb-4">{data.shortDescription}</div>
-        )}
-        <ContentLoader content={data.description} />
-      </div>
+      <Footer />
     </div>
   );
 };
