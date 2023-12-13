@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <body
-        className={`${inter.className} max-w-screen no-scrollbar h-screen overflow-x-hidden bg-white !font-body text-black selection:bg-gray-500/50`}
+        className={`${inter.className} max-w-screen h-screen overflow-x-hidden bg-white !font-body text-black selection:bg-gray-500/50`}
       >
         <Providers>
           <Navbar />
-          <main className="mx-auto h-[calc(100%_-_64px)] max-w-5xl overflow-x-hidden overflow-y-scroll px-4 pt-2 sm:px-6 lg:px-8">
+          <main className="no-scrollbar mx-auto h-[calc(100%_-_64px)] max-w-5xl overflow-x-hidden overflow-y-scroll px-4 pt-2 sm:px-6 lg:px-8">
             {children}
           </main>
         </Providers>
