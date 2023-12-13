@@ -15,6 +15,10 @@ const config: Config = {
       fontFamily: {
         body: ["Montserrat", "sans-serif"],
       },
+      height: {
+        screen: "100svh",
+        width: "100svw",
+      },
     },
   },
   darkMode: "class",

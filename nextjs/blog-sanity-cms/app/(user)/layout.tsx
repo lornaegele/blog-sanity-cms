@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <main className="mx-auto h-[calc(100%_-_64px)] max-w-5xl overflow-scroll px-4 pt-2 sm:px-6 lg:px-8">
+          <main className="mx-auto h-[calc(100%_-_64px)] max-w-5xl overflow-x-hidden overflow-y-scroll px-4 pt-2 sm:px-6 lg:px-8">
             {children}
           </main>
         </Providers>
