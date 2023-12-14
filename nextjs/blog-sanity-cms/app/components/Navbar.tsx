@@ -38,7 +38,7 @@ const Navbar = () => {
               <Link href="/">
                 <h1 className=" flex items-center justify-center gap-2 text-xl">
                   <GiMountainRoad />
-                  {/* @ts-expect-error Server Component */}
+                  {/* @ts-ignore: Server Component */}
                   <Title />
                 </h1>
               </Link>
