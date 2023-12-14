@@ -4,9 +4,14 @@ export default {
   title: "Home",
   fields: [
     {
+      name: "title",
+      type: "string",
+      title: "Title",
+    },
+    {
       name: "headline",
       type: "string",
-      title: "headline",
+      title: "Headline",
     },
     {
       name: "subheadline",

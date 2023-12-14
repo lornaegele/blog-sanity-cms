@@ -6,6 +6,7 @@ import PhotoPreview from "./PhotoPreview";
 import Photo from "./Photo";
 import Footer from "./Footer";
 import Modal from "./Modal";
+import Title from "./Title";
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   PhotoPreview,
   Footer,
   Modal,
+  Title,
 };

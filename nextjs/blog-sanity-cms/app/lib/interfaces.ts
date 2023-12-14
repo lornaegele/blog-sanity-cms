@@ -33,6 +33,7 @@ export interface AboutType extends Base {
   };
 }
 export interface HomeType extends Base {
+  title: string;
   headline: string;
   subheadline: string;
   heroDesktop: any;

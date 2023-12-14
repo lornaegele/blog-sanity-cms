@@ -7,11 +7,9 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { GiMountainRoad } from "react-icons/gi";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Title } from "./";
 
-interface NavItemsProps {
-  closeMenu?: () => void; // Define the type for closeMenu prop
-  menuOpen: boolean;
-}
+export const revalidate = 60;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +37,9 @@ const Navbar = () => {
             <div className="flex w-full justify-start md:w-1/3">
               <Link href="/">
                 <h1 className=" flex items-center justify-center gap-2 text-xl">
-                  <GiMountainRoad /> lorenznaegele
+                  <GiMountainRoad />
+                  {/* @ts-expect-error Server Component */}
+                  <Title />
                 </h1>
               </Link>
             </div>
@@ -85,7 +85,13 @@ const Navbar = () => {
   );
 };
 
-export const NavItems = ({ closeMenu, menuOpen }: NavItemsProps) => {
+export const NavItems = ({
+  closeMenu,
+  menuOpen,
+}: {
+  closeMenu?: () => void;
+  menuOpen: boolean;
+}) => {
   const pathname = usePathname();
 
   return (
@@ -109,12 +115,6 @@ export const NavItems = ({ closeMenu, menuOpen }: NavItemsProps) => {
           </div>
         );
       })}
-      {/* <Link
-        href="https://instagram.com/lorenznaegele"
-        className="relative  after:absolute after:bottom-0 after:left-0 after:h-[1.5px]  after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-      >
-        Instagram
-      </Link> */}
     </div>
   );
 };
