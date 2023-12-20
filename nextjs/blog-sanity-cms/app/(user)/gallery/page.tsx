@@ -3,6 +3,7 @@ import { PhotoType } from "@/app/lib/interfaces";
 import { fetchSanityData } from "@/app/lib/sanity";
 import { Modal } from "@/app/components";
 import { Metadata } from "next";
+import { compareAsc, parseISO } from "date-fns";
 
 export const metadata: Metadata = {
   title: "Photo gallery of my latest work",
@@ -17,11 +18,18 @@ const PhotographyPage = async () => {
   const photoQuery = `*[_type == "photo"]`;
 
   const photoData = (await fetchSanityData(photoQuery)) as PhotoType[];
+
+  const sortedPhotoData = photoData.slice().sort((a, b) => {
+    const dateA = parseISO(a._createdAt);
+    const dateB = parseISO(b._createdAt);
+    return compareAsc(dateB, dateA);
+  });
+
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex flex-col p-0 md:px-4">
         <div className="flex flex-wrap gap-4">
-          {photoData.map((photo: PhotoType) => (
+          {sortedPhotoData.map((photo: PhotoType) => (
             <PhotoPreview photo={photo} key={photo._id} />
           ))}
         </div>
