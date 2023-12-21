@@ -35,7 +35,11 @@ const Home = async () => {
             <h1 className="whitespace-pre-line break-words text-[2.5rem] font-semibold leading-10 md:text-4xl">
               {homeData.headline}
             </h1>
-            <h1 className="pr-4 text-xl md:text-2xl">{homeData.subheadline}</h1>
+            {homeData.subheadline && (
+              <h1 className="pr-4 text-xl md:text-2xl">
+                {homeData.subheadline}
+              </h1>
+            )}
             <div className="flex">
               <Link
                 href="/gallery"

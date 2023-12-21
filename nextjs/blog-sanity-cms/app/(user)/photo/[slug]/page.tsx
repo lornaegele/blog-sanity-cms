@@ -33,7 +33,7 @@ const SlugPage = async ({ params: { slug } }: SlugPageProps) => {
       <div>
         <div className="flex flex-col items-end justify-end">
           <Image
-            className="object-cover object-left lg:object-center"
+            className="max-h-full object-contain object-center md:max-h-[100svh]"
             src={urlFor(data.image).url()}
             width={1000}
             height={750}

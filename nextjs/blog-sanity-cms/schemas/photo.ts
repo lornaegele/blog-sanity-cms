@@ -20,7 +20,6 @@ export default {
       options: {
         source: "title",
       },
-      validation: (Rule: any) => Rule.required().min(1).max(80),
     },
     {
       title: "Image",
