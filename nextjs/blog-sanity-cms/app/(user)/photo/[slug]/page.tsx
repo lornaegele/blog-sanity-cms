@@ -4,7 +4,6 @@ import Image from "next/image";
 import urlFor from "@/app/lib/sanityImageUrl";
 import { ContentLoader, Footer } from "@/app/components";
 import { groq } from "next-sanity";
-import { format } from "date-fns";
 
 interface SlugPageProps {
   params: {
@@ -29,8 +28,6 @@ const SlugPage = async ({ params: { slug } }: SlugPageProps) => {
 
   const data: PhotoType = await client.fetch(query, { slug });
 
-  const formattedDate = format(new Date(data.date), "dd MMMM yyyy");
-
   return (
     <div className="flex h-full flex-col justify-between">
       <div>
@@ -44,7 +41,7 @@ const SlugPage = async ({ params: { slug } }: SlugPageProps) => {
           />
           <div className="flex w-full justify-end pt-1">
             {/* <button className="underline">View Fullscreen</button> */}
-            <div>{formattedDate}</div>
+            <div>{data.date}</div>
           </div>
         </div>
         <div className="py-4">
