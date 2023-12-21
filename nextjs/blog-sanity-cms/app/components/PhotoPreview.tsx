@@ -10,7 +10,10 @@ interface PhotoPreviewProps {
 
 const PhotoPreview = ({ photo }: PhotoPreviewProps) => {
   return (
-    <div key={photo._id} className="w-full sm:w-[48%] lg:w-[49%]">
+    <div
+      key={photo._id}
+      className="w-full cursor-pointer sm:w-[48%] lg:w-[49%]"
+    >
       <Link href={`/photo/${photo.slug.current}`} prefetch>
         <article className="flex flex-col items-start justify-center">
           <Image
