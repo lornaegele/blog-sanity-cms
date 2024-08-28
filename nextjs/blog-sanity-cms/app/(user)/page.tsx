@@ -1,56 +1,50 @@
-import { fetchSanityData } from "../lib/sanity";
-import Image from "next/image";
-import { HomeType } from "../lib/interfaces";
-import urlFor from "../lib/sanityImageUrl";
-import Link from "next/link";
+import { Footer, PhotoPreview } from "@/app/components";
+import { PhotoType } from "@/app/lib/interfaces";
+import { fetchSanityData } from "@/app/lib/sanity";
+import { Modal } from "@/app/components";
+import { Metadata } from "next";
+import { compareAsc, parseISO } from "date-fns";
+
+export const metadata: Metadata = {
+  title: "Photo gallery of my latest work",
+  description: `Embark on a journey of discovery through captivating photography and profound philosophy.
+    Delve into hidden wonders, ponder life's mysteries, and experience the essence of our world 
+    in every pixel.`,
+};
 
 export const revalidate = 60;
 
 const Home = async () => {
-  const homeQuery = `*[_type == "home"][0]`;
-  const homeData = (await fetchSanityData(homeQuery)) as HomeType;
+  const photoQuery = `*[_type == "photo"]`;
+
+  const photoData = (await fetchSanityData(photoQuery)) as PhotoType[];
+
+  const sortedPhotoData = photoData.slice().sort((a, b) => {
+    const dateA = parseISO(a._createdAt);
+    const dateB = parseISO(b._createdAt);
+    return compareAsc(dateB, dateA);
+  });
 
   return (
-    <div className=" flex flex-col">
-      <div className="top-0 z-[1] hidden md:block">
-        <Image
-          className=" object-cover"
-          src={urlFor(homeData.heroDesktop).url()}
-          fill
-          alt={homeData.heroDesktop.alt}
-        />
-      </div>
-      <div className="absolute left-0 top-0 z-10 h-screen w-screen bg-black/40"></div>
-      <div className="-mt-[70px] block md:hidden">
-        <Image
-          className="z-[1] object-cover"
-          src={urlFor(homeData.heroMobile).url()}
-          fill
-          alt={homeData.heroDesktop.alt}
-        />
-      </div>
-      <div className="absolute bottom-1/4 left-0 z-10 w-screen text-white md:bottom-1/4">
-        <div className="mx-auto max-w-5xl sm:px-6 lg:px-8">
-          <div className="max-w-2/3 flex flex-col gap-4  p-4">
-            <h1 className="whitespace-pre-line break-words text-[2.5rem] font-semibold leading-10 md:text-4xl">
-              {homeData.headline}
-            </h1>
-            {homeData.subheadline && (
-              <h1 className="pr-4 text-xl md:text-2xl">
-                {homeData.subheadline}
-              </h1>
-            )}
-            <div className="flex">
-              <Link
-                href="/gallery"
-                className="transtion-all border-[1.5px] border-white bg-black/20 p-2 text-lg duration-300 hover:bg-white hover:text-black"
-              >
-                My latest photos
-              </Link>
-            </div>
-          </div>
+    <div className="flex h-full flex-col justify-between">
+      <div className="flex flex-col p-0 md:px-4">
+        <div className="flex flex-wrap gap-4">
+          {sortedPhotoData.map((photo: PhotoType) => (
+            <PhotoPreview photo={photo} key={photo._id} />
+          ))}
         </div>
+        <Modal>
+          <div>
+            <p className="font-bold">Welcome!</p>
+            <p className="py-2">
+              You can click on every picuture you like, to see more information
+              about my thoughts and the story behind the photograph.
+            </p>
+            <p>I hope you enjoy!</p>
+          </div>
+        </Modal>
       </div>
+      <Footer />
     </div>
   );
 };
