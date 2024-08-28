@@ -14,7 +14,7 @@ const PhotoPreview = ({ photo }: PhotoPreviewProps) => {
       <Link href={`/photo/${photo.slug.current}`} prefetch>
         <article className="flex cursor-pointer flex-col items-start justify-center ">
           <Image
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover hover:opacity-70"
             src={urlFor(photo.image).url()}
             width={640}
             height={480}

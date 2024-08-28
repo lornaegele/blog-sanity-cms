@@ -21,16 +21,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
-        pathname === "/"
-          ? "absolute top-0 z-20 w-screen text-white"
-          : "max-w-5xl text-black sm:px-6 lg:px-8"
-      } mx-auto`}
+      className="max-w-5xl text-black sm:px-6 lg:px-8  mx-auto"
     >
       <div
-        className={`${
-          pathname === "/" ? "mx-auto max-w-5xl sm:px-6 lg:px-8" : ""
-        }`}
+        className="mx-auto max-w-5xl sm:px-6 lg:px-8" 
       >
         <div className="relative flex h-16 justify-between px-4">
           <div className="flex w-full items-center justify-between">
@@ -104,9 +98,7 @@ export const NavItems = ({
               href={navItem.link}
               onClick={closeMenu} // Close the menu when a link is clicked
               className={`
-          ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"} ${
-            pathname === "/" && !menuOpen ? "after:bg-white" : "after:bg-black"
-          } relative  after:absolute after:bottom-0 after:left-0 after:h-[1.5px]   after:transition-all after:duration-300
+          ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"} after:bg-black relative  after:absolute after:bottom-0 after:left-0 after:h-[1.5px]   after:transition-all after:duration-300
         `}
               prefetch
             >

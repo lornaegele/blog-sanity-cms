@@ -7,6 +7,10 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Photo Gallery",
-    link: "/gallery",
+    link: "/",
+  },
+  {
+    name: "Video Projects",
+    link: "/video-projects",
   },
 ];

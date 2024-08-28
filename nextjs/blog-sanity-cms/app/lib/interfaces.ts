@@ -57,3 +57,10 @@ export interface Reference {
   _ref: string;
   _type: "reference";
 }
+
+export interface VideoThumbnail {
+  path: string;
+  ytLink: string;
+  dateTaken: string;
+  alt: string;
+}
