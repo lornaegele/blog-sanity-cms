@@ -2,15 +2,15 @@ import { NavItem } from "../interfaces";
 
 export const navItems: NavItem[] = [
   {
-    name: "About",
-    link: "/about",
-  },
-  {
-    name: "Photo Gallery",
+    name: "Photos",
     link: "/",
   },
   {
-    name: "Video Projects",
+    name: "Videos",
     link: "/video-projects",
+  },
+  {
+    name: "About",
+    link: "/about",
   },
 ];

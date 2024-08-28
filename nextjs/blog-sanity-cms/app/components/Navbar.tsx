@@ -13,7 +13,6 @@ export const revalidate = 60;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -44,11 +43,7 @@ const Navbar = () => {
             {/*  MOBILE */}
             {/* Burger Menu Button */}
             <div
-              className={`${
-                pathname === "/" && !menuOpen
-                  ? "text-white  delay-300"
-                  : "text-black"
-              } absolute right-4 z-40 block cursor-pointer md:hidden`}
+              className=" text-black absolute right-4 z-40 block cursor-pointer md:hidden"
               onClick={toggleMenu}
             >
               {menuOpen ? (
@@ -89,7 +84,7 @@ export const NavItems = ({
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col justify-end gap-10 p-6 pl-14 pt-16 text-2xl md:flex-row md:p-0 md:text-lg">
+    <div className="flex flex-col justify-end gap-4 p-6 pl-14 pt-16 text-xl md:flex-row md:p-0 md:text-lg">
       {navItems.map((navItem: NavItem) => {
         const isActive = pathname === navItem.link;
         return (
