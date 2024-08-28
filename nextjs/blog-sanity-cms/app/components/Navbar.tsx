@@ -84,7 +84,7 @@ export const NavItems = ({
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col justify-end gap-4 p-6 pl-14 pt-16 text-xl md:flex-row md:p-0 md:text-lg">
+    <div className="flex flex-col justify-end gap-8 p-6 pl-14 pt-16 text-xl md:flex-row md:p-0 md:text-lg">
       {navItems.map((navItem: NavItem) => {
         const isActive = pathname === navItem.link;
         return (
