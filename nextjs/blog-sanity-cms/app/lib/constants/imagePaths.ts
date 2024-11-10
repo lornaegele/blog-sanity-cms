@@ -7,10 +7,10 @@ export const videoThumbnails: VideoThumbnail[] = [
       alt: "Echoes of the ocean",
       dateTaken: "August 2024",
     },
-    // {
-    //   path: "/fotos/waves_of_wisdom.webp",
-    //   ytLink: "/",
-    //   alt: "Waves of wisdom",
-    //   dateTaken: "August 2024",
-    // },
+    {
+      path: "/fotos/thumbnail_waves_of_wisdom.webp",
+      ytLink: "https://youtu.be/gIQJPZYc59I",
+      alt: "Waves of wisdom",
+      dateTaken: "November 2024",
+    },
   ];
