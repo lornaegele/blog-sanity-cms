@@ -8,7 +8,7 @@ import urlFor from "@/app/lib/sanityImageUrl";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About me | Lorenz Nägele",
+  title: "About me | Lorenz Naegele",
   description: `Embark on a journey of discovery through captivating photography and profound philosophy.
     Delve into hidden wonders, ponder life's mysteries, and experience the essence of our world 
     in every pixel.`,
