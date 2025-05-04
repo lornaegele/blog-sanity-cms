@@ -10,6 +10,10 @@ export const navItems: NavItem[] = [
     link: "/video-projects",
   },
   {
+    name: "Instagram",
+    link: "https://www.instagram.com/lorenznaegele",
+  },
+  {
     name: "About",
     link: "/about",
   },
