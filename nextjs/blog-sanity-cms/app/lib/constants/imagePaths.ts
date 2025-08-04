@@ -19,4 +19,10 @@ export const videoThumbnails: VideoThumbnail[] = [
     alt: "No Service",
     dateTaken: "March 2025",
   },
+  {
+    path: "/fotos/finding_the_flow.webp",
+    ytLink: "https://youtu.be/U_7M_xfELcg",
+    alt: "Finding Flow in the Fight",
+    dateTaken: "June 2025",
+  },
 ];
